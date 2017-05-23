@@ -118,7 +118,13 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="general.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="general.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="led.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="led.h">
