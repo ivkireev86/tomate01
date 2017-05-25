@@ -33,7 +33,7 @@ int main(void)
     while (1) 
     {
 		//blink on 0.3 second in minute
-		_delay_ms(59700);
+		_delay_ms(10000-300);
 		led_on(0);
 		_delay_ms(300);
 		led_off(0);
