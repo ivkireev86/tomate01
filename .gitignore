@@ -1,6 +1,7 @@
 Visual Studio
 .vs/
 Debug/
+Release/
 *.d
 *.o
 *.mk

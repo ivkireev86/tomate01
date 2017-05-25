@@ -11,19 +11,19 @@
 
 void pump_init(void)
 {
-	/*A7 are declared output (pump key connected)*/
-	DDRA=0x80;
+	/*C7 are declared output (pump key connected)*/
+	DDRC=0x80;
 		
 	/*A7 if off by default*/
-	PORTA &= 0x7F;
+	PORTC &= 0x7F;
 }
 
 void pump_on(void)
 {
-	PORTA |= 0x80;
+	PORTC |= 0x80;
 }
 
 void pump_off(void)
 {
-	PORTA &= 0x7F;
+	PORTC &= 0x7F;
 }

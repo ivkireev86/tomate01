@@ -8,8 +8,8 @@
 #include <avr/io.h>
 
 #define F_CPU 7372800  // 7.3728 MHz
-//#define PUMP_PERIOD 60 * 4 //4 hours 
-#define PUMP_PERIOD 10 //10 minutes
+#define PUMP_PERIOD 3 * 60 * 4 //4 hours 
+//#define PUMP_PERIOD 3 * 10 //10 minutes
 
 #include <util/delay.h>
 
@@ -34,29 +34,34 @@ int main(void)
 	_delay_ms(1000);
 	led_off(0);
 	
-	unsigned short int pump_timer = PUMP_PERIOD-1; 
+	unsigned short int pump_timer = 2; 
 	
     //main loop
     while (1) 
     {
-		if (pump_timer == 0)
+		if (pump_timer <= 1)
 		{
 			pump_on();
-		}
-		
-		//blink on 0.3 second in minute
-		_delay_ms(10000-300);
-		led_on(0);
-		_delay_ms(300);
-		led_off(0);
-		
-		if (pump_timer == 0)
-		{
+			
+			for(unsigned char i = 0; i < 80; i++)
+			{
+				_delay_ms(500-50);
+				led_on(0);
+				_delay_ms(50);
+				led_off(0);			
+			}
+			
 			pump_off();
-			pump_timer = PUMP_PERIOD-1;
+			pump_timer = PUMP_PERIOD-1;			
 		}
 		else
 		{
+			//blink on 0.1 second in 20 sec
+			_delay_ms(20000-100);
+			led_on(0);
+			_delay_ms(100);
+			led_off(0);
+				
 			pump_timer--;
 		}
     }
