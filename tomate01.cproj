@@ -118,6 +118,18 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="mq.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mq.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="timer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="config.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="general.c">
       <SubType>compile</SubType>
     </Compile>
@@ -137,6 +149,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="pump.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="timer.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

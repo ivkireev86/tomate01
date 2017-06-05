@@ -5,15 +5,13 @@
  * Author : Ivan Kireev
  */ 
 
+#include "config.h"
+
 #include <avr/io.h>
-
-#define F_CPU 7372800  // 7.3728 MHz
-#define PUMP_PERIOD 3 * 60 * 4 //4 hours 
-//#define PUMP_PERIOD 3 * 10 //10 minutes
-
 #include <util/delay.h>
 
 #include "general.h"
+#include "mq.h"
 #include "led.h"
 #include "pump.h"
 
@@ -21,8 +19,10 @@ int main(void)
 {
 	//initialization
 	general_init();
+	mq_init();
 	led_init();
 	pump_init();
+	timer_init();
 
 	//blink 2 times per 1 second on start
 	_delay_ms(1000);
@@ -35,6 +35,15 @@ int main(void)
 	led_off(0);
 	
 	unsigned short int pump_timer = 2; 
+	
+	while (1)
+	{
+		//mq_check();
+		;
+		
+		//sleep();
+		;
+	}
 	
     //main loop
     while (1) 
