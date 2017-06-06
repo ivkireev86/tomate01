@@ -9,13 +9,13 @@
 #ifndef MQ_H_
 #define MQ_H_
 
-#define mq_time_t unsigned char
-void    *mq_task(void);
+typedef unsigned char t_mq_time;
+typedef void    (*t_mq_task)(void);
 
 void mq_init(void);
-void mq_push(mq_time_t, mq_task);	//push new message to queue
-char mq_check();					//run one task if time is come
-char get_queue_size();
-char get_queue_max_len();
+void mq_push(t_mq_time, t_mq_task);	//push new message to queue
+unsigned char mq_check(void);					//run one task if time is come
+unsigned char get_queue_size(void);
+unsigned char get_queue_max_len(void);
 
 #endif /* MQ_H_ */

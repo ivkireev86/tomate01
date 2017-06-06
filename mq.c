@@ -5,21 +5,45 @@
  *  Author: Ivan Kireev
  */ 
 
+#include "mq.h"
 
-#define MQ_SIZE 16
+#define _MQ_SIZE 16
 
-struct mq_msg
+typedef struct
 {
-	mq_time_t     due_time;
-	mq_task       task;
-};
+	t_mq_time	due_time;
+	t_mq_task	task;
+} _msg;
+_msg _queue[_MQ_SIZE];
 
-mq_msg mq_queue[MQ_SIZE]
+unsigned char _queue_max_len;
 
 void mq_init(void)
 {
-	for (unsigned char i = 0; i < MQ_SIZE; i++)
+	for (unsigned char i = 0; i < _MQ_SIZE; i++)
 	{
-		mq_queue[i].due_time = 0;
+		_queue[i].due_time = 0;
 	}
 }
+
+void mq_push(t_mq_time time, t_mq_task task)
+{
+	;
+}
+
+unsigned char mq_check(void)
+{
+	;
+}
+
+unsigned char get_queue_size(void)
+{
+	;
+}
+
+unsigned char get_queue_max_len(void)
+{
+	return _queue_max_len;
+}
+
+
