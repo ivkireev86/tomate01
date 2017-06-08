@@ -14,6 +14,7 @@
 #include "mq.h"
 #include "led.h"
 #include "pump.h"
+#include "timer.h"
 
 int main(void)
 {

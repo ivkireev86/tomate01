@@ -9,12 +9,12 @@
 #ifndef MQ_H_
 #define MQ_H_
 
-typedef unsigned char t_mq_time;
+typedef unsigned char t_mq_time;	//should be unsigned, 0 means NA
 typedef void    (*t_mq_task)(void);
 
 void mq_init(void);
-void mq_push(t_mq_time, t_mq_task);	//push new message to queue
-unsigned char mq_check(void);					//run one task if time is come
+void mq_push(t_mq_time, t_mq_task);			//push new message to queue
+unsigned char mq_check(void);				//run one task if time is come. return 1 if task was done, 0 if nothing was done
 unsigned char get_queue_size(void);
 unsigned char get_queue_max_len(void);
 
