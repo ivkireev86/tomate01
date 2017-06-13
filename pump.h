@@ -11,7 +11,6 @@
 
 void pump_init(void);
 
-void pump_on(void);
-void pump_off(void);
+void pump_flud40s(void);
 
 #endif /* PUMP_H_ */

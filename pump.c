@@ -8,6 +8,7 @@
 #include <avr/io.h>
 
 #include "pump.h"
+#include "mq.h"
 
 void pump_init(void)
 {
@@ -15,15 +16,16 @@ void pump_init(void)
 	DDRC=0x80;
 		
 	/*A7 if off by default*/
-	PORTC &= 0x7F;
+	PORTC &= !(0x80); //pump off
 }
 
-void pump_on(void)
+void pump_flud_cb(void)
 {
-	PORTC |= 0x80;
+	PORTC &= !(0x80);	//pump off
 }
 
-void pump_off(void)
+void pump_flud40s(void)
 {
-	PORTC &= 0x7F;
+	PORTC |= 0x80;  //pump on
+	mq_push(40<<5, pump_flud_cb);
 }

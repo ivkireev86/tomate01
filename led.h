@@ -11,7 +11,6 @@
 
 void led_init(void);
 
-void led_on(unsigned char led_num);
-void led_off(unsigned char led_num);
+void led_status_blink_start(void);
 
 #endif /* LED_H_ */

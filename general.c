@@ -9,5 +9,13 @@
 
 void general_init(void)
 {
-	
+	general_status = GSTATUS_INITIZLIZATION;	
+}
+
+void general_set_standby_mode(void)
+{
+	if (general_status == GSTATUS_INITIZLIZATION)
+	{
+		general_status = GSTATUS_STANDBY;
+	}
 }
